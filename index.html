@@ -41,9 +41,9 @@
 			this.reverse = function() {
 				//reverse the sentence
 				      var tempArr = [];
-                tempArr = this.wordsArray.toString();
-                var redRum = tempArr.split("").reverse().join("");
-                	return redRum;
+                tempArr = this.wordsArray;
+                tempArr.reverse();
+                	return tempArr;
 			}
 			
 			this.getWordAt = function(i) {
@@ -57,11 +57,12 @@
 		/* Some Tests. Make them all pass! */
 		
 		var s = new Sentence(["Hello", "I", "Am", "Computer"]);
+		
 		console.log(s.getWordCount() == 4);
 		console.log(s.getLetterCount() == 19); 
 		console.log(s.getWordAt(0) == "Hello");
 		s.reverse()
-		console.log(s.getWordAt(0) == "Computer");////wut?
+		console.log(s.getWordAt(0) == "Computer");
 
 
 		 
@@ -77,26 +78,27 @@
 			p.getWordAt(10)
 			p.getSentenceCount()
 			p.addToHTML("paragraphs")
-		
-*/
-				function Paragraph(paraArray) {
-			this.paraArray = paraArray;
-			
-			this.getWordCount = function() {
-                //find the amount of words in the Paragraph
-                	return this.paraArray.length;
-                		
-			}
-			
+		*/
+
+			function Paragraph (paraArray) {
+				this.wordsArray = s.wordsArray + "," + s2.wordsArray;
+				console.log(this.wordsArray);
+				return this.wordsArray;
+								
+				}
+
+
 	var s2 = new Sentence (["I", "am", "not", "a", "human"]);
-	p = new Paragraph([s, s2]);
-			
-		console.log(s2.getWordCount() == 4);
-		console.log(s2.getLetterCount() == 19); 
-		console.log(s2.getWordAt(0) == "Hello");
-		s2.reverse()
-		console.log(s2.getWordAt(0) == "Computer");////wut?
-		
+	var p = new Paragraph([s, s2]);//an object with an array with a string in it.
+
+			/* Implement the following:
+			console.log(p.getWordCount());
+			console.log(p.getLetterCount());
+			console.log(p.getWordAt(10));
+			console.log(p.getSentenceCount());
+			console.log(p.addToHTML("paragraphs"));
+*/
+
 	</script>
 </body>
 </html>
